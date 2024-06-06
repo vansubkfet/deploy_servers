@@ -1,82 +1,76 @@
-
 version: '3.7'
 
 services:
-
-	balancer:
-		image: nginx
+  balancer:
+	  image: nginx
 		container_name: httpd-server1
 		restart: on-failure
-		# enviroment:
-	
-		# volumes:
-
 		ports:
-			- "8081:80"
+		  - "8081:80"
 		networks:
-			front-tier:
-				ipv4_address: 172.12.5.10
+		  front-tier:
+			  ipv4_address: 172.12.5.10
 
-	frontend-server1:
-		image: httpd-mod_jk
-		container_name: httpd-server1
-		restart: on-failure
-		# enviroment:
+	# frontend-server1:
+	# 	image: httpd-mod_jk
+	# 	container_name: httpd-server1
+	# 	restart: on-failure
+	# 	# enviroment:
 
-		# volumes:
+	# 	# volumes:
 
-		# ports:
+	# 	# ports:
 
-		networks:
-			front-tier:
-				ipv4_address: 172.12.5.11
-			back-tier:
-				ipv4_address: 172.12.6.100
+	# 	networks:
+	# 		front-tier:
+	# 			ipv4_address: 172.12.5.11
+	# 		back-tier:
+	# 			ipv4_address: 172.12.6.100
 
-	frontend-server2:
-		image: httpd-mod_jk
-		container_name: httpd-server2
-		restart: on-failure
-		# enviroment:
+	# frontend-server2:
+	# 	image: httpd-mod_jk
+	# 	container_name: httpd-server2
+	# 	restart: on-failure
+	# 	# enviroment:
 
-		# volumes:
+	# 	# volumes:
 
-		# ports:
+	# 	# ports:
 
-		networks:
-			front-tier:
-				ipv4_address: 172.12.5.12
-			back-tier:
-				ipv4_address: 172.12.6.101
+	# 	networks:
+	# 		front-tier:
+	# 			ipv4_address: 172.12.5.12
+	# 		back-tier:
+	# 			ipv4_address: 172.12.6.101
 
 
-	backend-server1:
-		image: tomcat-server1
-		container_name: tomcat-server1
-		restart: on-failure
-		# enviroment:
+	# backend-server1:
+	# 	image: tomcat-server1
+	# 	container_name: tomcat-server1
+	# 	restart: on-failure
+	# 	# enviroment:
 
-		# volumes:
+	# 	# volumes:
 
-		# ports:
+	# 	# ports:
 
-		networks:
-			back-tier:
-				ipv4_address: 172.12.6.102
+	# 	networks:
+	# 		back-tier:
+	# 			ipv4_address: 172.12.6.102
 
-	backend-server2:
-		image: tomcat-server2
-		container_name: tomcat-server2
-		restart: on-failure
-		# enviroment:
+	# backend-server2:
+	# 	image: tomcat-server2
+	# 	container_name: tomcat-server2
+	# 	restart: on-failure
+	# 	# enviroment:
 
-		# volumes:
+	# 	# volumes:
 
-		# ports:
+	# 	# ports:
 
-		networks:
-			back-tier:
-				ipv4_address: 172.12.6.103
+	# 	networks:
+	# 		back-tier:
+	# 			ipv4_address: 172.12.6.103
 
 networks:
 	front-tier:
