@@ -77,13 +77,13 @@ networks:
     driver: bridge
     ipam:
       driver: default
-      subnet: 172.12.5.0/24
-      gateway: 172.12.5.1
+      config:
+        - subnet: "172.12.5.0/24"
 
   back-tier:
     driver: bridge
     ipam:
       driver: default
-      subnet: 172.12.6.0/24
-      gateway: 172.12.6.1
+      config:
+        - subnet: "172.12.6.0/24"
 
