@@ -12,7 +12,7 @@ services:
         ipv4_address: 172.12.5.10
 
   frontend-server1:
-    image: httpd-mod_jk
+    image: httpd-mod_jk1
     container_name: httpd-server1
     restart: on-failure
     # enviroment:
@@ -28,7 +28,7 @@ services:
         ipv4_address: 172.12.6.100
 
   frontend-server2:
-    image: httpd-mod_jk
+    image: httpd-mod_jk2
     container_name: httpd-server2
     restart: on-failure
     # enviroment:
@@ -44,33 +44,33 @@ services:
         ipv4_address: 172.12.6.101
 
 
-  backend-server1:
-    image: tomcat-server1
-    container_name: tomcat-server1
-    restart: on-failure
-    # enviroment:
+  # backend-server1:
+  #   image: tomcat-server1
+  #   container_name: tomcat-server1
+  #   restart: on-failure
+  #   # enviroment:
 
-    # volumes:
+  #   # volumes:
 
-    # ports:
+  #   # ports:
 
-    networks:
-      back-tier:
-        ipv4_address: 172.12.6.102
+  #   networks:
+  #     back-tier:
+  #       ipv4_address: 172.12.6.102
 
-  backend-server2:
-    image: tomcat-server2
-    container_name: tomcat-server2
-    restart: on-failure
-    # enviroment:
+  # backend-server2:
+  #   image: tomcat-server2
+  #   container_name: tomcat-server2
+  #   restart: on-failure
+  #   # enviroment:
 
-    # volumes:
+  #   # volumes:
 
-    # ports:
+  #   # ports:
 
-    networks:
-      back-tier:
-        ipv4_address: 172.12.6.103
+  #   networks:
+  #     back-tier:
+  #       ipv4_address: 172.12.6.103
 
 networks:
   front-tier:
@@ -86,4 +86,5 @@ networks:
       driver: default
       config:
         - subnet: "172.12.6.0/24"
+
 
