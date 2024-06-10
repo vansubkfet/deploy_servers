@@ -11,3 +11,6 @@ COPY ./nginx.conf /etc/nginx/
 
 # Copy default config file
 COPY ./default.conf /etc/nginx/conf.d/
+
+EXPOSE 8081
+
