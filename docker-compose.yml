@@ -6,7 +6,7 @@ services:
     container_name: nginx_lb
     restart: on-failure
     ports:
-      - "8081:80"
+      - "8081:8081"
     networks:
       front-tier:
         ipv4_address: 172.12.5.10
