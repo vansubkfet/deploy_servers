@@ -2,17 +2,17 @@ version: '3.7'
 
 services:
   balancer:
-    image: nginx_lb
-    container_name: nginx_lb
+    image: nginx
+    container_name: nginx
     restart: on-failure
     ports:
-      - "8081:8081"
+      - "8181:80"
     networks:
       front-tier:
         ipv4_address: 172.12.5.10
 
   frontend-server1:
-    image: httpd-mod_jk1
+    image: httpd-server1
     container_name: httpd-server1
     restart: on-failure
     # enviroment:
@@ -28,7 +28,7 @@ services:
         ipv4_address: 172.12.6.100
 
   frontend-server2:
-    image: httpd-mod_jk2
+    image: httpd-server2
     container_name: httpd-server2
     restart: on-failure
     # enviroment:
@@ -79,6 +79,7 @@ networks:
       driver: default
       config:
         - subnet: "172.12.5.0/24"
+          gateway: "172.12.5.1"
 
   back-tier:
     driver: bridge
@@ -86,5 +87,6 @@ networks:
       driver: default
       config:
         - subnet: "172.12.6.0/24"
+          gateway: "172.12.6.1"
 
 

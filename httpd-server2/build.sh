@@ -1,3 +1,3 @@
 #! /bin/bash
 
-/usr/bin/docker build -t httpd-mod_jk2 .
+/usr/bin/docker build -t httpd-server2 .
